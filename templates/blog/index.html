@@ -14,6 +14,7 @@
 
         </div>
         <div class="col-md-8">
+            {% for post in posts %}
             <div class="card shadow my-3">
                 <div class="card-body">
                     <div class="row">
@@ -22,11 +23,11 @@
 
                         </div>
                         <div class="col-md-8">
-                            <small>23march</small>
+                            <small>{{post.date_created}}</small>
                             <hr>
-                            <a class="h3" href="">First Post</a>
+                            <a class="h3" href="">{{post.title}}</a>
                             <p class="my-3" style="text-align: justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla cumque quibusdam tenetur atque eligendi. Sunt consectetur incidunt iste rerum, porro officia eos? Repellat eum aut asperiores assumenda officiis! Blanditiis!
+                                {{post.content}}
                             </p>
                         </div>
                     </div>
@@ -34,87 +35,7 @@
                 </div>
 
             </div>
-            <div class="card shadow my-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="" alt="img">
-
-                        </div>
-                        <div class="col-md-8">
-                            <small>23march</small>
-                            <hr>
-                            <a class="h3" href="">First Post</a>
-                            <p class="my-3" style="text-align: justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla cumque quibusdam tenetur atque eligendi. Sunt consectetur incidunt iste rerum, porro officia eos? Repellat eum aut asperiores assumenda officiis! Blanditiis!
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="card shadow my-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="" alt="img">
-
-                        </div>
-                        <div class="col-md-8">
-                            <small>23march</small>
-                            <hr>
-                            <a class="h3" href="">First Post</a>
-                            <p class="my-3" style="text-align: justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla cumque quibusdam tenetur atque eligendi. Sunt consectetur incidunt iste rerum, porro officia eos? Repellat eum aut asperiores assumenda officiis! Blanditiis!
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="card shadow my-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="" alt="img">
-
-                        </div>
-                        <div class="col-md-8">
-                            <small>23march</small>
-                            <hr>
-                            <a class="h3" href="">First Post</a>
-                            <p class="my-3" style="text-align: justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla cumque quibusdam tenetur atque eligendi. Sunt consectetur incidunt iste rerum, porro officia eos? Repellat eum aut asperiores assumenda officiis! Blanditiis!
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="card shadow my-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="" alt="img">
-
-                        </div>
-                        <div class="col-md-8">
-                            <small>23march</small>
-                            <hr>
-                            <a class="h3" href="">First Post</a>
-                            <p class="my-3" style="text-align: justify">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla cumque quibusdam tenetur atque eligendi. Sunt consectetur incidunt iste rerum, porro officia eos? Repellat eum aut asperiores assumenda officiis! Blanditiis!
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
+           {% endfor %}
         </div>
 
     </div>
