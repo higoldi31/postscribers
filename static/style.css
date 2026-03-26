@@ -1,5 +1,5 @@
 .cover{
-    background-image: url('/media/profile/background.jpg');
+    background-image: url('/static/background.jpg');
     background-position: center;
     background-size: cover;
     height: 100vh;
