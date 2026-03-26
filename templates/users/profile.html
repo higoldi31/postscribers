@@ -44,12 +44,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-thumbnail" src="{{user.profilemodel.image.url}}" alt="">
+            </div>
+            <div class="col-md-8">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{u_form | crispy}}
+                    {{p_form | crispy}}
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>

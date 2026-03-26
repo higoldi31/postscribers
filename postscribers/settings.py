@@ -124,10 +124,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL='blog-index'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL=' /media/'
 
 MEDIA_ROOT=(BASE_DIR / 'media')
 
 STATIC_ROOT=(BASE_DIR / 'asset')
+
+STATICFILES_DIRS=[
+    BASE_DIR / 'static'
+]
