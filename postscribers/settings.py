@@ -121,4 +121,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+
+LOGIN_REDIRECT_URL='blog-index'
+
 STATIC_URL = 'static/'
