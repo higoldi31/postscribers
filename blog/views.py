@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import PostModel
-from .forms import PostModelForm,PostUpdateForm
+from .forms import PostModelForm,PostUpdateForm,CommentForm
 # Create your views here.
 def index(request):
     posts=PostModel.objects.all()
@@ -22,8 +22,19 @@ def index(request):
 
 def post_detail(request,pk):
     post=PostModel.objects.get(id=pk)
+    if request.method=="POST":
+        c_form=CommentForm(request.POST)
+        if c_form.is_valid():
+            instance=c_form.save(commit=False)
+            instance.user=instance.user
+            instance.post=post
+            instance.save()
+            return redirect('blog-post-detail',post.id)
+    else:
+        c_form=CommentForm()
     context={
         'post':post,
+        'c_form':c_form,
 
     }
     return render(request,'blog/post_detail.html',context)
@@ -52,3 +63,4 @@ def post_delete(request,pk):
         'post':post,
     }
     return render(request,'blog/post_delete.html',context)
+

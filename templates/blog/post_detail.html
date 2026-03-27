@@ -24,10 +24,32 @@
                             </p>
                         </div>
                     </div>
+                <div class="accordion my-3" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                               Comments:{{post.comment_count}}
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div style="height:200px; overflow-y: scroll;" class="accordion-body">
+                                {% for comment in post.comment_set.all %}
+                               <p class="text-justify">
+                                {{comment.content}}
+                               </p>
+                               {% endfor %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <form class="my-3" method="POST">
+                        {% csrf_token %}
+                        {{c_form | crispy}}
+                        <input class="btn btn-primary btn-sm" type="submit" value="Comment">
+                    </form>
                 </div>
-                
-
             </div>
+         </div>
         </div>
     </div>
 </div>
