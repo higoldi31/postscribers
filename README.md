@@ -2,6 +2,10 @@
 
 Postscribers is a Django-based blogging platform where authenticated users can create posts, comment on posts, and manage their profiles (including profile images).
 
+##live link
+
+live : https://postscribers.onrender.com
+
 ## Features
 
 - User authentication (login/logout)
