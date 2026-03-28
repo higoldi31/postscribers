@@ -7,6 +7,7 @@
         <div class="col-md-4">
             <div class="card my-3 shadow">
                 <div class="card-body">
+                    <h4 class="text-center">Create New Post</h4>
                     <form method="POST">
                         {% csrf_token %}
                         {{form|crispy}}
@@ -22,6 +23,7 @@
             {% for post in posts %}
             <div class="card shadow my-3">
                 <div class="card-body">
+                    
                     <div class="row">
                         <div class="col-md-4">
                             <img class="img-thumbnail" src="{{ post.author.profilemodel.image.url}}" alt="img">
@@ -30,7 +32,7 @@
                         <div class="col-md-8">
                             <small>{{post.date_created}}</small>
                             <hr>
-                            <a class="h3" href="{% url 'blog-post-detail' post.id %}">{{post.title}}</a>
+                            <a class="h3 text-primary post-title" href="{% url 'blog-post-detail' post.id %}">{{post.title}}</a>
                             <p class="my-3" style="text-align: justify">
                                 {{post.content}}
                             </p>

@@ -1,7 +1,18 @@
+
 .cover{
     background-image: url('/static/background.jpg');
     background-position: center;
     background-size: cover;
     height: 100vh;
 
+}
+
+.post-title {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.post-title:hover {
+  color: #0a58ca; /* darker shade */
+  text-decoration: underline;
 }

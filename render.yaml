@@ -1,0 +1,15 @@
+services:
+ -type:web
+  name:postscribers
+  env:python
+  buildcommand:'pip install -r requirements.txt && python manage.py collectstatic --noinput &&'
+  startcommand:'gunicorn postscribers.wsgi:application'
+  envVars:
+    -key:SECRET_KEY
+      generateValue:true
+    -key:DEBUG
+      value:'False'
+    -key:Allowed_HOSTS
+      value:'.onrender.com'
+    -key:PYTHON_VERSION
+      value:'3.14.0'
