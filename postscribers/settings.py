@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["postscribers.onrender.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -132,19 +132,40 @@ LOGIN_URL='users-login'
 
 STATIC_URL = '/static/'
 
-MEDIA_URL=' /media/'
-
-MEDIA_ROOT=(BASE_DIR / 'media')
-
-STATIC_ROOT=(BASE_DIR / 'asset')
+STATIC_ROOT=(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS=[
     BASE_DIR / 'static'
 ]
 
+MEDIA_URL='/media/'
+
+MEDIA_ROOT=(BASE_DIR / 'media')
+
+
+
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
+
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'emailaddress'
+EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER', 'emailaddress')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = [
+    "https://postscribers.onrender.com"
+]
