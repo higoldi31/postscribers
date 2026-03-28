@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
-
-ALLOWED_HOSTS = ["postscribers.onrender.com", "127.0.0.1", "localhost"]
+DEBUG =True
+#  os.getenv('DEBUG') == 'True'
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -132,7 +132,7 @@ LOGIN_URL='users-login'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT=(BASE_DIR / 'staticfiles')
+STATIC_ROOT=os.path.join(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS=[
     BASE_DIR / 'static'
